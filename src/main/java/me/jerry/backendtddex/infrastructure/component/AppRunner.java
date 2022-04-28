@@ -18,7 +18,7 @@ public class AppRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        log.info("NAME: {}", EnvComponent.NANE);
+        log.info("NAME: {}", EnvComponent.NAME);
         log.info("VERSION: {}", EnvComponent.VERSION);
         log.info("PROFILES: {}", envComponent.getActiveProfiles());
         log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

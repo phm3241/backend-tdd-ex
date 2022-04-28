@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.jerry.backendtddex.infrastructure.component.EnvComponent;
+import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDateTime;
 
@@ -19,8 +20,20 @@ public class StatusResponse {
     private LocalDateTime timestamp;
 
     public StatusResponse() {
-        this.name = EnvComponent.NANE;
+        this.name = EnvComponent.NAME;
         this.version = EnvComponent.VERSION;
         this.timestamp = LocalDateTime.now();
     }
+
+    public StatusResponse(LocalDateTime timestamp) {
+        this.name = EnvComponent.NAME;
+        this.version = EnvComponent.VERSION;
+        this.timestamp = timestamp;
+    }
+
+    public LocalDateTime fiveDaysLater(LocalDateTime timestamp){  // 이렇게 해야 테스트를 하는 가능하다.
+        return timestamp.plusDays(5);
+    }
+
+
 }

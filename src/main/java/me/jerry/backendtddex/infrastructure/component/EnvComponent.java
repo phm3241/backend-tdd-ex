@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class EnvComponent {
 
-    public static String NANE = "backend-tdd";
+    public static String NAME = "backend-tdd";
     public static String VERSION = "0.0.0";
 
     private final Environment environment;
