@@ -2,6 +2,7 @@ package me.jerry.backendtddex.infrastructure.presentation.controller;
 
 import me.jerry.backendtddex.infrastructure.component.EnvComponent;
 import me.jerry.backendtddex.infrastructure.presentation.model.response.GenericResponse;
+import me.jerry.backendtddex.infrastructure.presentation.model.response.MemInfoResponse;
 import me.jerry.backendtddex.infrastructure.presentation.model.response.StatusResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,15 @@ public class StatusApiController {
     public GenericResponse<Object> health(){
         return new GenericResponse<Object>("서버 상태", new StatusResponse());
     }
+
+
+    @GetMapping("/mem-info")
+    public GenericResponse<MemInfoResponse> memInfo(){
+
+        return new GenericResponse<>("서버 메모리", new MemInfoResponse());
+    }
+
+
 
 
 }

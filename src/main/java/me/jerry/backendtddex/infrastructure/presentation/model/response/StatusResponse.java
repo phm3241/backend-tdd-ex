@@ -19,6 +19,7 @@ public class StatusResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss z", timezone = "Asia/Seoul")
     private LocalDateTime timestamp;
 
+
     public StatusResponse() {
         this.name = EnvComponent.NAME;
         this.version = EnvComponent.VERSION;
@@ -34,6 +35,7 @@ public class StatusResponse {
     public LocalDateTime fiveDaysLater(LocalDateTime timestamp){  // 이렇게 해야 테스트를 하는 가능하다.
         return timestamp.plusDays(5);
     }
+
 
 
 }

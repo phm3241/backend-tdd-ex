@@ -1,6 +1,7 @@
 package me.jerry.backendtddex.infrastructure.presentation.controller;
 
 import me.jerry.backendtddex.infrastructure.presentation.model.response.GenericResponse;
+import me.jerry.backendtddex.infrastructure.presentation.model.response.MemInfoResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class StatusApiControllerTest {
 
     public static final String API_V_1_0_STATUS_HEALTH = "/api/v1.0/status/health";
+    public static final String API_V_1_0_STATUS_MEM_INFO = "/api/v1.0/status/mem-info";
 
     @Autowired
     private TestRestTemplate testRestTemplate;
@@ -56,6 +58,24 @@ class StatusApiControllerTest {
         assertThat(data.get("name")).isNotBlank();
         assertThat(data.get("version")).isNotBlank();
         assertThat(data.get("timestamp")).isNotBlank();
+    }
+
+
+    @Test
+    @DisplayName("Health API 호충 - 서버상태 정상일 때 - 서버이름, 버전, 시간 확인")
+    public void getMemoInfo_whenServerIsValid_receiveOK(){
+        //Given
+        //When
+        ResponseEntity<GenericResponse> response = testRestTemplate.getForEntity(API_V_1_0_STATUS_MEM_INFO, GenericResponse.class);
+
+        // object 로 받아야 한다.
+        Map<String,Object> data = (Map<String,Object>) response.getBody().getData();
+
+        //Then
+        // 있다정도만 확인해야한다.
+        assertThat(data.get("maxMemory")).isNotNull();
+        assertThat(data.get("freeMemory")).isNotNull();
+        assertThat(data.get("totalMemory")).isNotNull();
     }
 
 
