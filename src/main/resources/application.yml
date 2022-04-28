@@ -1,1 +1,21 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true # bean -https://java.ihoney.pe.kr/530
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      connection-timeout: 3000 # 30 sec default
+      validation-timeout: 1000 # 5 sec default - check the connection is valid?
+      connection-test-query: SELECT 1
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_batch_fetch_size: 500 # between 100 - 1000
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: false # admin: true, others: false
 

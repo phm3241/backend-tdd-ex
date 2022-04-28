@@ -2,10 +2,8 @@ package me.jerry.backendtddex.infrastructure.presentation.model.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.jerry.backendtddex.infrastructure.component.EnvComponent;
-import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDateTime;
 
